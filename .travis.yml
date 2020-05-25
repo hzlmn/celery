@@ -64,7 +64,7 @@ matrix:
   - python: '2.7'
     env: TOXENV=flakeplus
     stage: lint
- 
+
   allow_failures:
   - python: pypy2.7-7.3
     env: TOXENV=pypy
@@ -138,7 +138,7 @@ after_success:
               .tox/$TOXENV/bin/coverage xml
               .tox/$TOXENV/bin/codecov -e TOXENV
           fi;
-install: pip --disable-pip-version-check install --upgrade-strategy eager -U tox | cat
+install: pip --disable-pip-version-check install --upgrade-strategy eager -U tox tox-venv | cat
 script: tox -v -- -v
 notifications:
   email: false
